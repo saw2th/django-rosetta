@@ -109,7 +109,7 @@ def find_pos(lang, project_apps=True, django_apps=False, third_party_apps=False)
     for path in paths:
         for lang_ in langs:
             dirname = os.path.join(path, lang_, 'LC_MESSAGES')
-            for fn in ('django.po','djangojs.po',):
+            for fn in rosetta_settings.POFILENAMES:
                 filename = os.path.join(dirname, fn)
                 if os.path.isfile(filename):
                     ret.add(os.path.abspath(filename))
